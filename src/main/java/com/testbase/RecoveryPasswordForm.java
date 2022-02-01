@@ -6,10 +6,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class RecoveryPasswordForm {
-    @FindBy(how = How.XPATH,using = "//a[text()='Войти']")
+    @FindBy(how = How.XPATH, using = "//a[text()='Войти']")
     private SelenideElement enterButton;
 
     @Step("Переход по кнопке Войти")
-    public void clickEnterButton(){enterButton.click();}
+    public void clickEnterButton() {
+        enterButton.click();
+    }
 }
 

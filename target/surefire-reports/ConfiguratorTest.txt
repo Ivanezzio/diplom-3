@@ -1,22 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ConfiguratorTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 18.758 s <<< FAILURE! - in ConfiguratorTest
-checkBurgerConstructorTabsWork(ConfiguratorTest)  Time elapsed: 17.941 s  <<< FAILURE!
-com.codeborne.selenide.ex.InvalidStateException: 
-Invalid element state: element click intercepted: Element <span class="text text_type_main-default">...</span> is not clickable at point (147, 176). Other element would receive the click: <div style="display: flex;">...</div>
-Screenshot: file:/C:/Users/ivanv/diplom-3/build/reports/tests/1643456454578.0.png
-Page source: file:/C:/Users/ivanv/diplom-3/build/reports/tests/1643456454578.0.html
-Timeout: 4 s.
-Caused by: ElementClickInterceptedException: element click intercepted: Element <span class="text text_type_main-default">...</span> is not clickable at point (147, 176). Other element would receive the click: <div style="display: flex;">...</div>
-	at ConfiguratorTest.checkBurgerConstructorTabsWork(ConfiguratorTest.java:21)
-Caused by: org.openqa.selenium.ElementClickInterceptedException: 
-element click intercepted: Element <span class="text text_type_main-default">...</span> is not clickable at point (147, 176). Other element would receive the click: <div style="display: flex;">...</div>
-  (Session info: chrome=97.0.4692.99)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'LAPTOP-U2DF6PFP', ip: '192.168.50.35', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.12'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 97.0.4692.99, chrome: {chromedriverVersion: 97.0.4692.71 (adefa7837d02a..., userDataDir: C:\Users\ivanv\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:57201}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 4f2b093388b1be4e5c2efc05e36df3e8
-	at ConfiguratorTest.checkBurgerConstructorTabsWork(ConfiguratorTest.java:21)
-
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 21.383 s - in ConfiguratorTest

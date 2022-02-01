@@ -10,24 +10,32 @@ import static com.codeborne.selenide.Condition.visible;
 
 public class UserProfilePage {
 
-    @FindBy(how = How.XPATH,using = "//div[starts-with(@Class, 'AppHeader_header__logo')]")
+    @FindBy(how = How.XPATH, using = "//div[starts-with(@Class, 'AppHeader_header__logo')]")
     private SelenideElement stellarBurgersLogo;
 
-    @FindBy(how = How.XPATH,using = "//p[text()='Конструктор']")
+    @FindBy(how = How.XPATH, using = "//p[text()='Конструктор']")
     private SelenideElement constructorButton;
 
-    @FindBy(how = How.XPATH,using = "//button[text()='Выход']")
+    @FindBy(how = How.XPATH, using = "//button[text()='Выход']")
     private SelenideElement exitButton;
 
     @Step("Проверка что пользователь находится в профиле")
-    public void checkUserIsInPersonalCabinet(){exitButton.shouldBe(visible, enabled);}
+    public void checkUserIsInPersonalCabinet() {
+        exitButton.shouldBe(visible, enabled);
+    }
 
     @Step("Клик по кнопке Конструктор")
-    public void clickConstructorButton(){constructorButton.click();}
+    public void clickConstructorButton() {
+        constructorButton.click();
+    }
 
     @Step("Клик по Логотипу")
-    public void clickMainLogo(){stellarBurgersLogo.click();}
+    public void clickMainLogo() {
+        stellarBurgersLogo.click();
+    }
 
     @Step("Клие по кнопке Выход")
-    public void clickExitButton(){exitButton.click();}
+    public void clickExitButton() {
+        exitButton.click();
+    }
 }

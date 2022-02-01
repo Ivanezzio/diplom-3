@@ -12,19 +12,19 @@ public class LoginPage {
 
     private final String LOGIN_PAGE_URL = "https://stellarburgers.nomoreparties.site/login";
 
-    @FindBy(how = How.XPATH,using = "//div/input[@type='text']")
+    @FindBy(how = How.XPATH, using = "//div/input[@type='text']")
     private SelenideElement userEmailField;
 
     @FindBy(how = How.XPATH, using = "//h2[text()='Вход']")
     private SelenideElement loginPageTitle;
 
-    @FindBy(how = How.XPATH,using = "//div/input[@type='password']")
+    @FindBy(how = How.XPATH, using = "//div/input[@type='password']")
     private SelenideElement userPasswordField;
 
     @FindBy(how = How.XPATH, using = "//form//button[text()='Войти']")
     private SelenideElement loginButton;
 
-    @FindBy(how = How.XPATH,using = "//a[text()='Зарегистрироваться']")
+    @FindBy(how = How.XPATH, using = "//a[text()='Зарегистрироваться']")
     private SelenideElement registerButton;
 
     @FindBy(how = How.XPATH, using = "//a[text()='Восстановить пароль']")
@@ -32,24 +32,28 @@ public class LoginPage {
     //a[starts-with(@Class, 'Auth_link')][text()='Восстановить пароль']
 
     @Step("Вход в аккаунт по кнопке Войти")
-    public void clickLoginButton(){loginButton.click();}
+    public void clickLoginButton() {
+        loginButton.click();
+    }
 
     @Step("Нажатие кнопки Зарегистрироваться")
-    public void clickRegistrationButton(){
-        registerButton.click();}
+    public void clickRegistrationButton() {
+        registerButton.click();
+    }
 
     @Step("Нажатие кнопки Восстановить пароль")
-    public void clickRecoveryButton(){
-        recoveryPasswordButton.click();}
+    public void clickRecoveryButton() {
+        recoveryPasswordButton.click();
+    }
 
     @Step("Проверка загрузки страницы Логина")
-    public boolean isOpen () {
+    public boolean isOpen() {
         loginPageTitle.shouldBe(visible);
         return url().equals(LOGIN_PAGE_URL);
     }
 
     @Step("Авторизация пользователя. Ввод данных и вход в личный кабинет по кнопке Войти")
-    public void enterCredentialsAndClickEnter(String email, String password){
+    public void enterCredentialsAndClickEnter(String email, String password) {
         userEmailField.setValue(email);
         userPasswordField.setValue(password);
         clickLoginButton();

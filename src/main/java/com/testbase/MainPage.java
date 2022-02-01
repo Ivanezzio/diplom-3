@@ -42,7 +42,7 @@ public class MainPage {
     @FindBy(how = How.XPATH, using = "//h2[text()='Начинки']")
     private SelenideElement fillingsSectionLabel;
 
-    @FindBy(how = How.XPATH,using = "//button[text()='Оформить заказ']")
+    @FindBy(how = How.XPATH, using = "//button[text()='Оформить заказ']")
     private SelenideElement makeOrderButton;
 
 // методы
@@ -58,29 +58,47 @@ public class MainPage {
     }
 
     @Step("Проверка отображения вкладки Булки по умолчанию")
-    public void isBunsTabOpen(){
+    public boolean isBunsTabOpen() {
         bunsSectionLabel.shouldBe(visible);
+        return true;
     }
 
     @Step("Проверка переключения на вкладку Соусы")
-    public void isSaucesTabWorks(){
+    public void goToSaucesTab() {
         saucesButton.click();
+    }
+
+    @Step("Проверка видимости вкладки Соусы")
+    public boolean isSaucesTabVisible() {
         saucesSectionLabel.shouldBe(visible);
+        return true;
     }
 
     @Step("Проверка переключения на вкладку Начинки")
-    public void isFillingsTabWorks(){
+    public void goToFillingsTab() {
         fillingsButton.click();
-        fillingsSectionLabel.shouldBe(visible);
     }
+
+    @Step("Проверка видимости вкладки Начинки")
+    public boolean isFillingsTabVisible() {
+        fillingsSectionLabel.shouldBe(visible);
+        return true;
+    }
+
     @Step("Проверка переключения на вкладку Булки")
-    public void isBunsTabWorks(){
+    public void goToBunsTab() {
         bunsButton.click();
         isBunsTabOpen();
     }
 
+    @Step("Проверка видимости вкладки Начинки")
+    public boolean isBunsTabVisible() {
+        bunsSectionLabel.shouldBe(visible);
+        return true;
+    }
+
     @Step("Проверка отображения кнопки Оформить заказ")
-    public boolean isMainPageLoggedAuthorised(){
+    public boolean isMainPageLoggedAuthorised() {
         makeOrderButton.shouldBe(visible, enabled);
         return url().equals(BURGERS_MAIN_PAGE_URL);
 

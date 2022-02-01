@@ -7,7 +7,9 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static com.codeborne.selenide.Selenide.*;
+
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.page;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.junit.Assert.assertTrue;
 
@@ -20,7 +22,7 @@ public class UserRegistrationTest {
     RegistrationPage registrationPage = page(RegistrationPage.class);
 
     @Before
-    public void setUp(){
+    public void setUp() {
         Configuration.startMaximized = true;
     }
 
@@ -36,7 +38,7 @@ public class UserRegistrationTest {
                 RandomStringUtils.randomAlphabetic(4) + "@" + RandomStringUtils.randomAlphabetic(4) + ".ru";
         String userPassword = RandomStringUtils.randomAlphabetic(7);
 
-        registrationPage.setUserDataAndRegister(userName,userEmail,userPassword);
+        registrationPage.setUserDataAndRegister(userName, userEmail, userPassword);
         loginPage.isOpen();
         loginPage.enterCredentialsAndClickEnter(userEmail, userPassword);
         assertTrue(mainPage.isMainPageLoggedAuthorised());
@@ -44,7 +46,7 @@ public class UserRegistrationTest {
 
     @Test
     @DisplayName("Регистрация пользователя с паролем короче 6 символов")
-    public void userRegistrationWithIncorrectPassword(){
+    public void userRegistrationWithIncorrectPassword() {
 
         mainPage.clickEnterAccountButton();
         loginPage.clickRegistrationButton();
@@ -54,12 +56,12 @@ public class UserRegistrationTest {
                 RandomStringUtils.randomAlphabetic(4) + "@" + RandomStringUtils.randomAlphabetic(4) + ".ru";
         String userIncorrectPassword = RandomStringUtils.randomAlphabetic(5);
 
-        registrationPage.setUserDataAndRegister(userName,userEmail,userIncorrectPassword);
+        registrationPage.setUserDataAndRegister(userName, userEmail, userIncorrectPassword);
         registrationPage.checkErrorTextPopUp();
     }
 
     @After
-    public void terminate(){
+    public void terminate() {
         getWebDriver().quit();
     }
 }

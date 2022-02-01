@@ -20,16 +20,15 @@ import static org.junit.Assert.assertTrue;
 
 public class UserAuthorizationTest {
 
+    final String LOGIN_URL = "https://stellarburgers.nomoreparties.site/login";
     MainPage mainPage = open(MainPage.BURGERS_MAIN_PAGE_URL, MainPage.class);
     LoginPage loginPage = page(LoginPage.class);
     RegistrationPage registrationPage = page(RegistrationPage.class);
     RecoveryPasswordForm recoveryPage = page(RecoveryPasswordForm.class);
     UserOperations userHelper;
-    final String LOGIN_URL = "https://stellarburgers.nomoreparties.site/login";
-
 
     @Before
-    public void setUp(){
+    public void setUp() {
 
         System.setProperty("webdriver.chrome.driver", "src/main/resources/yandexdriver.exe");
         Configuration.startMaximized = true;
@@ -38,7 +37,7 @@ public class UserAuthorizationTest {
 
     @Test
     @DisplayName("Вход по кнопке Войти в аккаунт")
-    public void userLoginByEnterAccountButton(){
+    public void userLoginByEnterAccountButton() {
 
         Map<String, String> userData = userHelper.register();
         mainPage.clickEnterAccountButton();
@@ -49,7 +48,7 @@ public class UserAuthorizationTest {
 
     @Test
     @DisplayName("Вход по кнопке Личный кабинет")
-    public void userLoginByPersonalCabinetButton(){
+    public void userLoginByPersonalCabinetButton() {
 
         mainPage.clickPersonalCabinetButton();
         String actualUrl = url();
@@ -59,7 +58,7 @@ public class UserAuthorizationTest {
 
     @Test
     @DisplayName("Вход через кнопку на форме регистрации")
-    public void userLoginFromRegistrationForm(){
+    public void userLoginFromRegistrationForm() {
 
         mainPage.clickEnterAccountButton();
         loginPage.clickRegistrationButton();
@@ -71,7 +70,7 @@ public class UserAuthorizationTest {
 
     @Test
     @DisplayName("Вход через кнопку на форме восстановления пароля")
-    public void userLoginFromPasswordRecoveryForm(){
+    public void userLoginFromPasswordRecoveryForm() {
 
         mainPage.clickEnterAccountButton();
         loginPage.clickRecoveryButton();
@@ -81,7 +80,7 @@ public class UserAuthorizationTest {
     }
 
     @After
-    public void terminate(){
+    public void terminate() {
         userHelper.delete();
         getWebDriver().quit();
     }

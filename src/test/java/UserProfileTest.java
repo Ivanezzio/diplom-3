@@ -22,7 +22,7 @@ public class UserProfileTest {
     LoginPage loginPage = page(LoginPage.class);
 
     @Before
-    public void setUp(){
+    public void setUp() {
 
         Configuration.startMaximized = true;
         userHelper = new UserOperations();
@@ -35,13 +35,13 @@ public class UserProfileTest {
 
     @Test
     @DisplayName("Проверка работоспособности перехода в Личный кабинет")
-    public void isPersonalCabinetReachable(){
+    public void isPersonalCabinetReachable() {
         profilePage.checkUserIsInPersonalCabinet();
     }
 
     @Test
     @DisplayName("Переход на главную страницу из Личного кабинета по Логотипу")
-    public void isMainPageReachableByLogoClick(){
+    public void isMainPageReachableByLogoClick() {
 
         profilePage.clickMainLogo();
         assertTrue(mainPage.isMainPageLoggedAuthorised());
@@ -49,7 +49,7 @@ public class UserProfileTest {
 
     @Test
     @DisplayName("Переход на главную страницу из Личного кабинета по кнопке конструктор")
-    public void isMainPageReachableByConstructorButton(){
+    public void isMainPageReachableByConstructorButton() {
 
         profilePage.clickConstructorButton();
         assertTrue(mainPage.isMainPageLoggedAuthorised());
@@ -57,14 +57,14 @@ public class UserProfileTest {
 
     @Test
     @DisplayName("Переход на страницу логина из Личного кабинета по кнопке Выход")
-    public void isLoginPageReachableByExitButton(){
+    public void isLoginPageReachableByExitButton() {
 
         profilePage.clickExitButton();
         assertTrue(loginPage.isOpen());
     }
 
     @After
-    public void terminate(){
+    public void terminate() {
         userHelper.delete();
         getWebDriver().quit();
     }
